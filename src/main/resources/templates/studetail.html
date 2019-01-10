@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymmeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息</title>
+    <link href="/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    "修改学生信息"
+    <form th:action="@{/pages/update}" method="get">
+        <!--使用disabled不行，会让他插入-->
+        <div class="form-group">
+            <label>stuID</label>
+            <input name="showID"  type="text" disabled="disabled"  class="form-control" placeholder="1111" th:value="${stu!=null}?${stu.stuID}">
+        </div>
+        <input name="stuID" type="hidden"  class="form-control" placeholder="1111" th:value="${stu!=null}?${stu.stuID}">
+        <div class="form-group">
+            <label>studentName</label>
+            <input name="stuName"  type="text" class="form-control" placeholder="zhangsan" th:value="${stu!=null}?${stu.stuName}">
+        </div>
+
+        <div class="form-group">
+            <label>studentPhone</label>
+            <input name="stuPhone" type="text" class="form-control" placeholder="123456" th:value="${stu!=null}?${stu.stuPhone}">
+        </div>
+        <div class="form-group">
+            <label>stuAddress</label>
+            <input name="stuAddress" type="text" class="form-control" placeholder="shandong" th:value="${stu!=null}?${stu.stuAddress}">
+        </div>
+        <input type="submit" class="form-control btn-primary" value="修改" />
+    </form>
+</div>
+</body>
+</html>
